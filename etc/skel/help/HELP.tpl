@@ -5,7 +5,7 @@ Help for Image: %(PARENT_IMAGE) Version %(IMAGE_VERSION)
 
 This image contains contains a complete installation of the Grav Flat-File CMS, 
 ready to use.  For more information, see http://getgrav.org.   For information
-about how to use this image, see https://github.com/garywiz/docker-grav.
+about how to use this image, see https://github.com/gperreymond/docker-grav.
 
 When you launch the container, the Grav site will be running at the URL:
    http://%(CONFIG_EXT_HOSTNAME)%(CONFIG_EXT_HTTP_PORT:|80||:%(CONFIG_EXT_HTTP_PORT))/

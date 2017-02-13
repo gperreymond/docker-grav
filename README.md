@@ -4,7 +4,7 @@ Grav is a fast, simple, flexible web-platform.  This is a Docker image that make
 
 To learn more about Grav, see the [Grav Website](http://learn.getgrav.org/basics/what-is-grav).
 
-This image is [also available on Docker Hub](https://hub.docker.com/r/garywiz/docker-grav/) so you can pull it directly from there.  There's no need to build it yourself.
+This image is [also available on Docker Hub](https://hub.docker.com/r/gperreymond/docker-grav/) so you can pull it directly from there.  There's no need to build it yourself.
 
 **NOTE**: This is an early-release of this container.   See the "Known Issues" section at the very bottom of this page for more information about things we know don't work.
 
@@ -19,14 +19,14 @@ The following documentation tells you how to use the `docker-grav` image, a lean
 
 You can get started quickly using the image hosted on Docker Hub.  For example, to quickly create a running self-contained Grav server daemon:
 
-    $ docker pull garywiz/docker-grav
-    $ docker run -d -p 8080:8080 garywiz/docker-grav
+    $ docker pull gperreymond/docker-grav
+    $ docker run -d -p 8080:8080 gperreymond/docker-grav
 
 Within a few seconds, you should be able to use Grav by going to `http://localhost:8080/`.    The default login user is `admin` with a password of `ChangeMe`.   (See "Customizing Grav" below for information about how to modify or add new users.
 
 If you want to store the Grav website and configuration locally outside the image, you can use the built-in launcher script.   Extract the launcher script from the image like this:
 
-    $ docker run -i --rm garywiz/docker-grav --task get-launcher | sh
+    $ docker run -i --rm gperreymond/docker-grav --task get-launcher | sh
 
 This will create a flexible launcher script that you can customize or use as a template.  You can run it as a daemon:
 
@@ -41,7 +41,7 @@ Now, all persistent data will be stored in the `docker-grav-storage` directory. 
 
 The `run-docker-grav.sh` script is designed to be self-documenting and you can edit it to change start-up options and storage options.  You can get up-to-date help on the image's features like this:
 
-    $ docker run -i --rm garywiz/docker-grav --task get-help
+    $ docker run -i --rm gperreymond/docker-grav --task get-help
 
 ## Using `run-docker-grav.sh`
 
@@ -49,7 +49,7 @@ If you extract the default launcher (see above), it can serve as the basis for y
 
     $ ./run-docker-grav.sh -h
     Usage: run-docker-grav.sh [-d] [-p port#] [-h]
-           Run Grav from garywiz/docker-grav as a daemon (with -d) or 
+           Run Grav from gperreymond/docker-grav as a daemon (with -d) or 
            interactively (the default).
     
       -d            Run as daemon (otherwise interactive)
@@ -94,7 +94,7 @@ See the [Grav Configuration documentation](http://learn.getgrav.org/basics/grav-
 
 If you want to invent your own start-up, or are using an orchestration tool, here is a quick view of all the configuration options piled into one command along with their defaults:
 
-    $ docker run -d garywiz/docker-grav \
+    $ docker run -d gperreymond/docker-grav \
       -p 8080:8080 \
       -e CONFIG_LOGGING=stdout \
       -e CONFIG_ADMIN_USER=admin \
@@ -121,7 +121,7 @@ When configuring attached storage, there are two considerations:
 
 Both are pretty easy.  For example, assume you are going to store persistent data on your local drive in `/persist/gravsite`.   Providing the directory exists, you can just do this:
 
-    $ docker run -d -v /persist/gravsite:/apps/var garywiz/docker-grav \
+    $ docker run -d -v /persist/gravsite:/apps/var gperreymond/docker-grav \
          --create-user anyuser:/apps/var
 
 When the container starts, it will assure that all internal services run as a new user called `anyuser` whose UID/GID credentials match the credentials your host box has assigned to `/persist/gravsite`.

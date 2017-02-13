@@ -2,7 +2,7 @@
 #Developer's startup script
 #Created by chaplocal on Wed Oct  7 02:09:09 UTC 2015
 
-IMAGE="garywiz/docker-grav"
+IMAGE="gperreymond/docker-grav"
 INTERACTIVE_SHELL="/bin/bash"
 
 # You can specify the external host and ports for your webserver here.  These variables
